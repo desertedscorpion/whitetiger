@@ -1,8 +1,8 @@
 #!/bin/bash
 
 WORK_DIR=$(mktemp -d) &&
-    pass git ls-files | sort --unique > ${WORK_DIR}/all.txt &&
-    git log --pretty=format: --name-only --since="${@}" | sort --unique > ${WORK_DIR}/recent.txt &&
+    pass git ls-files | sort --unique | sed -e "s#.gpg\$##" > ${WORK_DIR}/all.txt &&
+    pass git log --pretty=format: --name-only --since="${@}" | sort --unique | sed -e "" > ${WORK_DIR}/recent.txt &&
     OLDIES=$(diff --new-line-format="" --unchanged-line-format="" ${WORK_DIR}/all.txt ${WORK_DIR}/recent.txt | sort --unique) &&
     if [ -z "${OLDIES}" ]
     then
