@@ -14,6 +14,6 @@ cp /home/${LUSER}/private/id_rsa /home/${LUSER}/.ssh/id_rsa &&
     pass git checkout master &&
     pass git rebase origin/master &&
     ln --symbolic --force /home/${LUSER}/bin/post-commit /home/${LUSER}/.password-store/.git/hooks &&
-    /usr/bin/byobu &&
+#    /usr/bin/byobu &&
     /home/${LUSER}/bin/post-commit &&
     true

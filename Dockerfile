@@ -12,4 +12,4 @@ RUN chown --recursive ${LUSER}:${LUSER} /home/${LUSER}/.ssh /home/${LUSER}/bin
 USER ${LUSER}
 VOLUME /home/${LUSER}/private
 RUN chmod 0700 /home/${LUSER}/.ssh && chmod 0600 /home/${LUSER}/.ssh/config && chmod 0500 /home/${LUSER}/bin/*
-CMD /home/${LUSER}/bin/init
+CMD /usr/bin/byobu
