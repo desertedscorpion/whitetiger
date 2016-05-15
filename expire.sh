@@ -23,13 +23,13 @@ WORK_DIR=$(mktemp -d) &&
 			    true
 			;;
 		    G)
-			USE_SYMBOLS="default" &&
+			NO_SYMBOLS="default" &&
 			    if [ $(echo ${OLD_PASSWORD} | grep "^[A-Za-z0-9]*\$") ]
 			    then
-				USE_SYMBOLS="--use-symbols" &&
+				NO_SYMBOLS="--no-symbols" &&
 				    true
 			    else
-				USE_SYMBOLES="" &&
+				NO_SYMBOLS="" &&
 				    true
 			    fi &&
 			    LENGTH=$(echo ${OLD_PASSWORD} | wc --chars | cut --fields 1 --delimiter " ") &&
