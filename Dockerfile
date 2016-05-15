@@ -1,4 +1,4 @@
-FROM taf7lwappqystqp4u7wjsqkdc7dquw/easter
+FROM taf7lwappqystqp4u7wjsqkdc7dquw/heavytombstone
 MAINTAINER “Emory Merryman” emory.merryman+DoTDeCocXJroqaWu@gmail.com>
 ENV KEY_ID="2D2D81DA" PASS_REPO="git@github.com:AFnRFCb7/lanterngold.git"
 USER root
