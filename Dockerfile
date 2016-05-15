@@ -9,7 +9,8 @@ USER ${LUSER}
 VOLUME /home/${LUSER}/private
 RUN chmod 0700 /home/${LUSER}/.ssh && chmod 0600 /home/${LUSER}/.ssh/config && mkdir /home/${LUSER}/bin
 COPY post-commit.sh /home/${LUSER}/bin/post-commit
-RUN chmod 0500 /home/${LUSER}/bin/post-commit
+COPY phonetic.sh /home/${LUSER}/bin/phonetic
+RUN chmod 0500 /home/${LUSER}/bin/*
 CMD cp /home/${LUSER}/private/id_rsa /home/${LUSER}/.ssh/id_rsa && chmod 0600 /h
 ome/${LUSER}/.ssh/id_rsa && (gpg --allow-secret-key- --import /home/${LUSER}/pri
 vate/secret.key || true ) &&  (gpg2 --allow-secret-key- --import /home/${LUSER}/
