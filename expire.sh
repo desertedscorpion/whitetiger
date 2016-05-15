@@ -43,7 +43,7 @@ WORK_DIR=$(mktemp -d) &&
 			echo Skipping credential ${OLD} &&
 			    true
 			;;
-		    case &&
+		esac &&
 		true
 	done &&
 	    true

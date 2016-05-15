@@ -7,7 +7,7 @@ COPY config /home/${LUSER}/.ssh/config
 COPY post-commit.sh /home/${LUSER}/bin/post-commit
 COPY phonetic.sh /home/${LUSER}/bin/phonetic
 COPY init.sh /home/${LUSER}/bin/init
-COPY expire.sh /home/${LUSER}/bin/init
+COPY expire.sh /home/${LUSER}/bin/expire
 RUN chown --recursive ${LUSER}:${LUSER} /home/${LUSER}/.ssh /home/${LUSER}/bin
 USER ${LUSER}
 VOLUME /home/${LUSER}/private
