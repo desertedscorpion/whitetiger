@@ -1,10 +1,10 @@
 #!/bin/bash
 
-cp /home/${LUSER}/private/id_rsa /home/${LUSER}/.ssh/id_rsa &&
-    chmod 0600 /home/${LUSER}/.ssh/id_rsa &&
-    (gpg --allow-secret-key- --import /home/${LUSER}/private/secret.key || true ) &&
-    (gpg2 --allow-secret-key- --import /home/${LUSER}/private/secret.key || true ) &&
-    gpg --import-ownertrust /home/${LUSER}/private/owner.trust &&
+cp /root/private/id_rsa /root/.ssh/id_rsa &&
+    chmod 0600 /root/.ssh/id_rsa &&
+    (gpg --allow-secret-key- --import /root/private/secret.key || true ) &&
+    (gpg2 --allow-secret-key- --import /root/private/secret.key || true ) &&
+    gpg --import-ownertrust /root/private/owner.trust &&
     pass init ${KEY_ID} &&
     git config --global user.email "emory.merryman+$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)@gmail.com" &&
     git config --global user.name "Emory Merryman" &&
@@ -13,7 +13,7 @@ cp /home/${LUSER}/private/id_rsa /home/${LUSER}/.ssh/id_rsa &&
     pass git fetch origin master &&
     pass git checkout master &&
     pass git rebase origin/master &&
-    ln --symbolic --force /home/${LUSER}/bin/post-commit /home/${LUSER}/.password-store/.git/hooks &&
+    ln --symbolic --force /root/bin/post-commit /root/.password-store/.git/hooks &&
     /usr/bin/byobu &&
-    /home/${LUSER}/bin/post-commit &&
+    /root/bin/post-commit &&
     true
